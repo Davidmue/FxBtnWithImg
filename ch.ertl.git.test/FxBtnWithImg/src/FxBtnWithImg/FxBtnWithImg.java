@@ -2,13 +2,18 @@ package FxBtnWithImg;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -23,7 +28,8 @@ public class FxBtnWithImg extends Application {
 		stage.setTitle("A button with an image");
 		stage.setWidth(200);
 		stage.setHeight(200);
-		BorderPane root = new BorderPane();
+		BorderPane root = new BorderPane(); 
+		root.setBackground(new Background(new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY)));
 		Label lbl = new Label("Ready!");
 		Image img = new Image(getClass().getResourceAsStream("ok.png")); 
 		Button btn = new Button("", new ImageView(img));
@@ -42,6 +48,9 @@ public class FxBtnWithImg extends Application {
 		root.setCenter(btn);
 		root.setBottom(lbl);
 		Scene scene = new Scene(root);
+		scene.setOnMouseExited( (MouseEvent e) -> {
+			lbl.setText("Ready! ");
+		});
 		stage.setScene(scene);
 		stage.show(); 
 	}
