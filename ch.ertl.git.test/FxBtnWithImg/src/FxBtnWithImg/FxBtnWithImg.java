@@ -51,6 +51,9 @@ public class FxBtnWithImg extends Application {
 		scene.setOnMouseExited( (MouseEvent e) -> {
 			lbl.setText("Ready! ");
 		});
+		scene.setOnMouseMoved( (MouseEvent e) -> {
+			lbl.setText("Position " + e.getSceneX() + "/" + e.getSceneY());
+		});
 		stage.setScene(scene);
 		stage.show(); 
 	}
